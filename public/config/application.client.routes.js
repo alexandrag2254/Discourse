@@ -6,8 +6,10 @@ angular.module('mean').config(['$routeProvider',
         // Application routing definition
         $routeProvider.
         when('/', {
-            templateUrl: 'views/index.html',
-            controller: 'IndexController'
+            // templateUrl: 'views/index.html',
+            // controller: 'IndexController'
+            templateUrl: 'views/chapter_profile.html',
+            controller: 'ChapterProfileController'
         }).
         when('/signup', {
             templateUrl: 'views/signup.html',

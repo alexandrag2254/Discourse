@@ -1,0 +1,173 @@
+
+<style type="text/css">
+	
+	#chapter_page {
+		margin: auto;
+		width:85%;
+	}
+	
+	#user_title {
+		text-align: center;
+		line-height: 25%;
+		margin-bottom:50px;
+		margin-top: 50px;
+	}
+
+	#contact_info {
+		border: 3px solid gray;
+		padding: 20px;
+		width: 300px;
+		text-align: center;
+		margin:auto;
+		line-height: 45%
+	}
+
+	#description {
+		border: 4px gray solid;
+		width:47%;
+		padding:30px;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 5%;
+		height: 300px;
+	}
+	#description h2, h5{
+		text-align: center;
+		line-height: 40%;
+	}
+
+	#stats {
+		border:5px solid gray;
+		width:47%;
+		display: inline-block;
+		vertical-align: top;
+		padding:30px;
+		text-align: center;
+		height: 300px;
+	}
+
+	#members {
+		border: 2px solid gray;
+		margin-top: 30px;
+		margin-bottom: 1em;
+	}
+
+	#active_members {
+		width:100%;
+		margin-right: 5%;
+		padding:30px;
+	}
+
+	ul{
+	    width: 80em;
+	  }  /* float & allow room for the widest item */
+	ul li {
+	    float: left;
+	    width: 10em;
+	    list-style-type: none;
+	  }  /* stop the float */
+
+	br {
+	    clear: left;
+	  }  /* separate the list from subsequent markup */
+
+</style>
+<div class="row" ng-controller="ChapterProfileController" id="chapter_page">
+<div id="profile_picture">
+	<img src="http://blog.heyo.com/wp-content/uploads/2014/08/eventpage.jpg" width = "100%" height = "300"> <!-- pic source link from database -->
+</div>
+
+<div id="user_title">
+	<h1> Berkeley Chapter </h1>
+	<p><em>Berkeley CA</em></p>
+	<p><em>Established in 2011</em></p>
+</div>
+
+<div id="description">
+	<h2>Chapter Details</h2>
+	<h5>President <a href="#"> Joe</a></h5>
+	<h5>Moderator <a href="#"> Susan</a></h5>
+	<h4><em>Chapter Description</em></h4>
+	<p ng-hide = "admin_access"> Bonbon cotton candy cake cheesecake toffee chupa chups. Sesame snaps carrot cake candy canes cake. Dessert bear claw donut powder oat cake. Danish marzipan pudding cotton candy chocolate cake lemon drops oat cake cupcake. Chupa chups pie gingerbread candy chocolate cake gummies cupcake. Wafer topping candy biscuit powder danish.</p>
+	<!-- for moderators: present modularly to edit description -->
+	<form ng-show = "admin_access">
+		<textarea ng-model = "chapter.description"rows = "5" cols="50" placeholder="Bonbon cotton candy cake cheesecake toffee chupa chups. Sesame snaps carrot cake candy canes cake. Dessert bear claw donut powder oat cake. Danish marzipan pudding cotton candy chocolate cake lemon drops oat cake cupcake. Chupa chups pie gingerbread candy chocolate cake gummies cupcake. Wafer topping candy biscuit powder danish."></textarea>
+		<input type="submit" value="Edit" ng-click="editdescription(chapter.id)">
+	</form>
+</div>
+
+<div id="stats">
+	<h2>Chapter Statistics</h2>
+	<p>Total Money Raised: $6000 </p>
+	<p>Money Raised this year: $1000 </p>
+	<p>Rescued Count: 10 </p>
+	<p>Number of Members: 100 </p>
+</div>
+
+<!-- member lists -->
+
+<div id="members">
+
+	<div class="grid" id="active_members">
+		<h3>Active Chapter Member</h3>
+
+		<form ng-show="admin_access">
+			<input type="text" placeholder="new member name" ng-model="newmember">
+			<input type="submit" value="Add" ng-click="addMember()">
+		</form>
+		<br>
+		<ul>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			<li>Stephane Judd</li>
+			
+			<br/>
+		</ul>
+	          
+	</div>
+
+</div>
+
+<div>

@@ -1,0 +1,47 @@
+
+<style type="text/css">
+	#profile_picture {
+		  border-radius: 100000px;
+		  border: 1px black solid;
+		  overflow: hidden;
+		  width:250px;
+		  height:250px;
+		  margin: auto;
+	}
+	#user_title {
+		text-align: center;
+		margin-bottom:100px;
+		margin-top: 50px;
+	}
+
+	#contact_info {
+		border: 3px solid gray;
+		padding: 20px;
+		width: 400px;
+		text-align: center;
+		margin: auto;
+	}
+</style>
+<div class="row" ng-Controller="UserProfileController">
+
+	<div id="profile_picture">
+		<img src="http://www.bdu.edu.et/emti/sites/bdu.edu.et.emti/files/default_images/no-profile-img.gif" width = "250" height = "250"> <!-- pic source link from database -->
+	</div>
+
+	<div id="user_title">
+		<h1> Alexandra Gr </h1>
+		<p><em>Joined <a href="#">{{user.location}}</a> Chapter in {{user.join_date}}</em></p>
+	</div>
+
+	<div id="contact_info">
+		<h3> Contact Info </h3>
+		<p>Email: {{user.email}}</p>
+		<form ng-show="admin_access">
+			Email: <input type="text" placeholder="{{user.email}}" ng-model ="user.email">
+			<input type="submit" value="Edit" ng-click="editEmail(user._id)">
+		</form>
+		<br>
+		<p>Status: Administrator</p>
+	</div>
+
+<div>
