@@ -1,11 +1,11 @@
 
 //userprofile controller
-mainApplicationModule.controller('ChapterProfileController', function($scope, $location, editdescriptionFactory){
+mainApplicationModule.controller('UserProfileController', function($scope, $location, UserProfileFactory){
 
 	console.log("I am in the CP controller");
 
 	$scope.editdescription = function(id){
-		editEmailFactory.editEmail(id, $scope.new_description);
+		UserProfileFactory.editEmail(id, $scope.new_description);
 	};
 
 	//updating email if user is admin or moderator
@@ -17,5 +17,4 @@ mainApplicationModule.controller('ChapterProfileController', function($scope, $l
 	// }
 
 	$scope.admin_access = true;
-
 });

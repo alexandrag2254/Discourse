@@ -1,6 +1,7 @@
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
 
-var chapterSchema = new mongoose.Schema({
+var ChapterSchema = new Schema({
 	chapter_name: String,
 	chapter_email: String,
 	location: String,
@@ -13,6 +14,7 @@ var chapterSchema = new mongoose.Schema({
 	amount_raised: Number,
 	rescued_count: Number,
 	img_url: String,
+	code: String,
 	created_at: {
 		type: Date,
 		default: Date.now

@@ -1,5 +1,5 @@
 //user_profile factory
-mainApplicationModule.factory('editEmailFactory', function($http){
+mainApplicationModule.factory('UserProfileFactory', function($http){
 	var factory = {};
 
 	factory.editEmail = function(info) {

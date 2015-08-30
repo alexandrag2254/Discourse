@@ -16,6 +16,14 @@ mainApplicationModule.factory('ChapterProfileFactory', function($http){
 		// });
 	}
 
+	factory.getChapter = function(chapter, callback) {
+		chapter = chapter.chapter
+		$http.get('/get_chapter/'+chapter).success(function(output){
+			// console.log(output);
+			callback(output);
+		});
+	}
+
 	console.log("I am in the UP factory");
 	return factory;
 });

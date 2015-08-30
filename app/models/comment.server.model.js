@@ -1,6 +1,6 @@
 var Schema = mongoose.Schema;
 
-var commentSchema = new mongoose.Schema({
+var CommentSchema = new mongoose.Schema({
 	comment: String,
 	_post: {type: Schema.ObjectId, ref: "Post"},
 	name: String,

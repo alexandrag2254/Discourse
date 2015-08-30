@@ -5,11 +5,13 @@
  */
 var mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	Chapter = mongoose.model('Chapter');
 
 /**
  * Get the error message from error object
  */
+
 var getErrorMessage = function(err) {
 	var message = '';
 
@@ -17,7 +19,7 @@ var getErrorMessage = function(err) {
 		switch (err.code) {
 			case 11000:
 			case 11001:
-				message = 'Username already exists';
+				message = 'Name already exists';
 				break;
 			default:
 				message = 'Something went wrong';
@@ -93,6 +95,18 @@ exports.signin = function(req, res, next) {
 			});
 		}
 	})(req, res, next);
+};
+
+exports.get_chapter = function(req, res) {
+	// console.log("this is the controller!!!!!!!", req);
+
+	Chapter.find({ chapter_name : req }, function(err, results){
+			if(err) {
+				res.send(err);
+			} else {
+				res.json(results);
+			}
+		});
 };
 
 /**

@@ -1,6 +1,6 @@
 var Schema = mongoose.Schema;
 
-var postSchema = new mongoose.Schema({
+var PostSchema = new mongoose.Schema({
 	post: String,
 	category: String,
 	title: String,

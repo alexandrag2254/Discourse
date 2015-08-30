@@ -9,13 +9,13 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/index.html',
             controller: 'IndexController'
         }).
-        when('/chapter_profile/:id', {
+        when('/chapter_profile/:chapter', {
             templateUrl: 'views/chapter_profile.html',
-            controller: 'ChapterProfileController'
+            controller: 'IndexController'
         }).
         when('/user_profile/:id', {
             templateUrl: 'views/user_profile.html',
-            controller: 'UserProfileController'
+            controller: 'IndexController'
         }).
         when('/signup', {
             templateUrl: 'views/signup.html',

@@ -5,16 +5,16 @@ var passport = require('passport'),
 
 module.exports = function() {
 	// Use local strategy
-	passport.use(new LocalStrategy(function(username, password, done) {
+	passport.use(new LocalStrategy(function(email, password, done) {
 		User.findOne({
-			username: username
+			email: email
 		}, function(err, user) {
 			// When an error occurred
 			if (err) {
 				return done(err);
 			}
 			
-			// When user not found 
+			// When user not found
 			if (!user) {
 				return done(null, false, {
 					message: 'Unknown user'

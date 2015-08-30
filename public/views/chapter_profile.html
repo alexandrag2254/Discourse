@@ -1,3 +1,13 @@
+<section data-ng-if="!authentication.user" class="text-center">
+	<h3>You're not signed in!</h3>
+	<a href="/#!/signup">Sign up</a> or
+	<a href="/#!/signin">Sign in</a>
+</section>
+<section data-ng-if="authentication.user" class="text-center">
+	<h3>Welcome, {{authentication.user.name}}!</h3>
+	<a href="/auth/signout">Sign out</a>
+
+</section>
 
 <style type="text/css">
 	
@@ -78,9 +88,9 @@
 </div>
 
 <div id="user_title">
-	<h1> Berkeley Chapter </h1>
-	<p><em>Berkeley CA</em></p>
-	<p><em>Established in 2011</em></p>
+	<h1> {{chapter.chapter_name}} Chapter </h1>
+	<p><em>{{chapter.location}}</em></p>
+	<p><em>Established in {{chapter.created_at.substring(0, 4)}}</em></p>
 </div>
 
 <div id="description">
@@ -88,19 +98,19 @@
 	<h5>President <a href="#"> Joe</a></h5>
 	<h5>Moderator <a href="#"> Susan</a></h5>
 	<h4><em>Chapter Description</em></h4>
-	<p ng-hide = "admin_access"> Bonbon cotton candy cake cheesecake toffee chupa chups. Sesame snaps carrot cake candy canes cake. Dessert bear claw donut powder oat cake. Danish marzipan pudding cotton candy chocolate cake lemon drops oat cake cupcake. Chupa chups pie gingerbread candy chocolate cake gummies cupcake. Wafer topping candy biscuit powder danish.</p>
+	<p ng-hide = "admin_access"> {{chapter.description}}</p>
 	<!-- for moderators: present modularly to edit description -->
 	<form ng-show = "admin_access">
-		<textarea ng-model = "chapter.description"rows = "5" cols="50" placeholder="Bonbon cotton candy cake cheesecake toffee chupa chups. Sesame snaps carrot cake candy canes cake. Dessert bear claw donut powder oat cake. Danish marzipan pudding cotton candy chocolate cake lemon drops oat cake cupcake. Chupa chups pie gingerbread candy chocolate cake gummies cupcake. Wafer topping candy biscuit powder danish."></textarea>
-		<input type="submit" value="Edit" ng-click="editdescription(chapter.id)">
+		<textarea ng-model = "chapter.description" rows = "5" cols="50" placeholder="{{chapter.description}}"></textarea>
+		<input type="submit" value="Edit" ng-click="editdescription(chapter._id)">
 	</form>
 </div>
 
 <div id="stats">
 	<h2>Chapter Statistics</h2>
-	<p>Total Money Raised: $6000 </p>
+	<p>Total Money Raised: {{chapter.amount_raised}} </p>
 	<p>Money Raised this year: $1000 </p>
-	<p>Rescued Count: 10 </p>
+	<p>Rescued Count: {{chapter.rescused_count}} </p>
 	<p>Number of Members: 100 </p>
 </div>
 

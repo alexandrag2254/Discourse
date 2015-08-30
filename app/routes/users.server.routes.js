@@ -7,6 +7,11 @@ module.exports = function(app) {
 	app.route('/auth/signin').post(users.signin);
 	app.route('/auth/signout').get(users.signout);
 
+	app.get('/get_chapter/:chapter', function(req, res){
+		// console.log(req.params.chapter);
+    	users.get_chapter(req.params.chapter, res);
+  });
+
 	// Setting the facebook oauth routes
 	app.route('/auth/facebook').get(passport.authenticate('facebook', {
 		scope: ['email']

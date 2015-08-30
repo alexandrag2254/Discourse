@@ -29,15 +29,15 @@
 	</div>
 
 	<div id="user_title">
-		<h1> Alexandra Gr </h1>
-		<p><em>Joined <a href="#">{{user.location}}</a> Chapter in {{user.join_date}}</em></p>
+		<h1> {{authentication.user.name}} </h1>
+		<p><em>Joined <a href="#">{{authentication.user.location}}</a> Chapter in {{authentication.user.created_at.substring(0,4)}}</em></p>
 	</div>
 
 	<div id="contact_info">
 		<h3> Contact Info </h3>
-		<p>Email: {{user.email}}</p>
+		<p>Email: {{authentication.user.email}}</p>
 		<form ng-show="admin_access">
-			Email: <input type="text" placeholder="{{user.email}}" ng-model ="user.email">
+			Email: <input type="text" placeholder="{{authentication.user.email}}" ng-model ="authentication.user.email">
 			<input type="submit" value="Edit" ng-click="editEmail(user._id)">
 		</form>
 		<br>

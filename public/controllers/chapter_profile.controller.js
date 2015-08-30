@@ -1,7 +1,13 @@
 //userprofile controller
-mainApplicationModule.controller('ChapterProfileController', function($scope, $location, ChapterProfileFactory){
+mainApplicationModule.controller('ChapterProfileController', function($scope, $routeParams, $location, ChapterProfileFactory){
 
 	console.log("I am in the UP controller");
+	console.log("routeParams", $routeParams);
+
+	ChapterProfileFactory.getChapter($routeParams, function(data){
+		$scope.chapter = data[0];
+		// console.log($scope.chapter);
+	});
 
 	$scope.editEmail = function(id){
 		ChapterProfileFactory.editEmail(id, $scope.new_email);
