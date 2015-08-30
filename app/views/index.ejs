@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mean">
+
+	<style type="text/css">
+		#navbar {
+			margin-left: 5%;
+		}
+	</style>
 	<head>
     	<title>LINK Discussion Board</title>
 
@@ -10,8 +16,14 @@
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
   	</head>
   	<body>
+
+	  	<div id="navbar">
+			<a href="/#!/global">Global</a> | <a href="/#!/local">Local</a> | <a href="/#!/chapter_profile/1">Chapter Profile</a> | <a href="/#!/user_profile/1">User Profile</a>
+	 	</div>
+
   		<h1 class="text-center">LINK Discussion Board</h1>
-  		<section ng-view></section>
+  		<!-- partial views -->
+  		<section ng-view=""></section>
 		
 		<script type="text/javascript">
 			window.user = <%- user || 'null' %>;

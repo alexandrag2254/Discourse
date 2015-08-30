@@ -3,18 +3,18 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-	firstName: String,
-	lastName: String,
+	name: String
 	email: {
 		type: String,
 		match: [/.+\@.+\..+/, "Please fill a valid email address"]
 	},
-	username: {
-		type: String,
-		unique: true,
-		required: 'Username is required',
-		trim: true
-	},
+	level: String,
+	chapter: String,
+	facebook_token: String,
+	status: String,
+	posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
+	years_active: String,
+	profile_pic: String,
 	password: {
 		type: String,
 		validate: [
@@ -26,12 +26,7 @@ var UserSchema = new Schema({
 	salt: {
 		type: String
 	},
-	provider: {
-		type: String,
-		required: 'Provider is required'
-	},
-	providerData: {},
-	created: {
+	created_at: {
 		type: Date,
 		default: Date.now
 	}
