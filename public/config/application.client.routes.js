@@ -17,6 +17,14 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/user_profile.html',
             controller: 'IndexController'
         }).
+        when('/global', {
+            templateUrl: 'views/global.html',
+            controller: 'IndexController'
+        }).
+        when('/local', {
+            templateUrl: 'views/local.html',
+            controller: 'IndexController'
+        }).
         when('/signup', {
             templateUrl: 'views/signup.html',
             controller: 'AuthenticationController'

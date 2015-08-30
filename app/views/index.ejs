@@ -1,29 +1,85 @@
 <!DOCTYPE html>
 <html ng-app="mean">
-
-	<style type="text/css">
-		#navbar {
-			margin-left: 5%;
-		}
-	</style>
 	<head>
     	<title>LINK Discussion Board</title>
 
     	<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+
+		<title>Liberty In North Korea</title>
+		<link rel="stylesheet" href="http://foundation.zurb.com/assets/css/templates/foundation.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<script type="text/javascript" src="http://foundation.zurb.com/assets/js/modernizr.js"></script>
+		<!-- <script type="text/javascript" src="../js/foundation.js"></script>-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.offcanvas.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	</head>
   	<body>
+		<!--Navigation Begin-->
+			<div class="off-canvas-wrap" data-offcanvas>
+		  		<div class="inner-wrap">
+		  			<nav class="tab-bar show-for-small">
+				        <section class="left-small">
+				            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+				        </section>
+				    </nav>
 
-	  	<div id="navbar">
-			<h4><a href="/#!/global">Global</a> | <a href="/#!/local">Local</a> | <a href="/#!/chapter_profile/1">Chapter Profile</a> | <a href="/#!/user_profile/1">User Profile</a></h4>
-	 	</div>
+				<!-- Off Canvas Menu fir Mobile -->
+			    <aside class="left-off-canvas-menu">
+			        <ul>
+			            <li><a href="#">Global Board</a></li>
+			            <li><a href="#">Local Board</a></li>
+			            <li><a href="#">My Chapter</a></li>
+			            <li><a href="#">My Profile</a></li>
+			            <section data-ng-if="authentication.user">
+							<li><a href="/#!/signin">Sign in</a></li>
+						</section>
+			            <section data-ng-if="authentication.user">
+							<li><a href="/auth/signout">Sign out</a></li>
+						</section>
+			        </ul>
+			    </aside>
+			   <!-- close the off-canvas menu -->
+		  		<a class="exit-off-canvas"></a>
+			</div>
+		</div>
 
-  		<h1 class="text-center">LINK Discussion Board</h1>
+			<div class="row">
+				<div class="large-12 columns">
+					<div class="nav-bar right hide-for-small nav-top">
+						<ul class="button-group">
+							<li><a href="/#!/global" title="Global Board" class="button-nav"><i class="fa fa-globe"></i> Global Board</a></li>
+							<li><a href="/#!/local" title="Local Board" class="button-nav"><i class="fa fa-home"></i> Local Board</a></li>
+							<li><a href="/#!/chapter_profile/1" title="My Chapter" class="button-nav"><i class="fa fa-users"></i> My Chapter</a></li>
+							<li><a href="/#!/user_profile/1" title="My Profile" class="button-nav"><i class="fa fa-user"></i> My Profile</a></li>
+							<li><a href="/auth/signout" title="Sign In/Out" class="button-nav"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+						</ul>
+					</div>
+					<img src="../images/logo-link-80px.png" class="logo" title="Liberty In North Korea" />
+					<hr>
+				</div>
+			</div>
+		<!--Navigation End-->
+
   		<!-- partial views -->
   		<section ng-view=""></section>
+
+
+  	<footer class="row">
+		<div class="large-12 columns">
+			<hr/>
+			<div class="row">
+				<div class="large-6 columns">
+					<p>&copy; Copyright Liberty In North Korea.</p>
+				</div>
+				<div class="large-6 columns">
+				</div>
+			</div>
+		</div>
+	</footer>
 		
 		<script type="text/javascript">
 			window.user = <%- user || 'null' %>;
@@ -41,5 +97,20 @@
 		<script type="text/javascript" src="controllers/chapter_profile.factory.js"></script>
 		<script type="text/javascript" src="services/authentication.client.service.js"></script>
 		<script type="text/javascript" src="config/application.client.routes.js"></script>
+		<script>
+			document.write('<script src=js/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery') +'.js><\/script>')
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+		<script>$(document).foundation();</script>
+		<script src="http://foundation.zurb.com/assets/js/templates/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.js"></script>
+		<script>
+		    $(document).foundation();
+			var doc = document.documentElement;
+	        doc.setAttribute('data-useragent', navigator.userAgent);
+	    </script>
+
+
   	</body>
 </html>

@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+
+body {
+	font-family: "Raleway";
+	font-weight: 300;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Raleway";
+	font-weight: 600;	
+}
+
+p {
+	font-size: 14px;
+}
+
+.logo {
+	padding-top: 20px;
+}
+
+.nav-top {
+	padding-top: 20px;
+}
+
+.post {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding: 20px;
+	background-color: #f4f4f4;
+	display: inline-block;
+	float: right;
+	border-radius: 4px;
+}
+
+.post-votes {
+	width: 5%;
+	float: left;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 800;
+	margin-right: 1%;
+	text-align: center;
+}
+
+.post-chapter-logo {
+	width: 7%;
+	float: left;
+	display: inline-block;
+	margin-right: 1%
+}
+
+.post-content {
+	width: 86%;
+	display: inline-block;
+	float: right;
+}
+
+.tab-title {
+	padding: 5px 10px !important;
+
+}
+
+.tabs-content {
+	top: -30px;
+	position: relative;
+
+}
+
+.comment {
+	margin-left: 20px;
+}
+
+.small-text {
+	top: -8px !important;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.button-nav {
+	padding: 5px 12px;
+	font-size: 13px;
+}
+
+.left-off-canvas-menu {
+	height: 800px;
+}

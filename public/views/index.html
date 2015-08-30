@@ -1,10 +1,18 @@
-<section data-ng-if="!authentication.user" class="text-center">
-	<h3>You're not signed in!</h3>
-	<a href="/#!/signup">Sign up</a> or
-	<a href="/#!/signin">Sign in</a>
-</section>
-<section data-ng-if="authentication.user" class="text-center">
-	<h3>Welcome, {{authentication.user.name}}!</h3>
-	<a href="/auth/signout">Sign out</a>
+<div class="row">
+	<div class="large-3 columns"></div>
 
-</section>
+	<div class="large-6 columns" role="content">
+		<div data-ng-if="!authentication.user" class="text-center">
+			<h3>You're not signed in!</h3>
+			<a href="/#!/signup">Sign up</a> or
+			<a href="/#!/signin">Sign in</a>
+		</div>
+		<div data-ng-if="authentication.user" class="text-center">
+			<h3>Welcome, {{authentication.user.name}}!</h3>
+			<a href="/auth/signout">Sign out</a>
+		</div>
+	</div>
+
+	<div class="large-3 columns"></div>
+
+</div>
