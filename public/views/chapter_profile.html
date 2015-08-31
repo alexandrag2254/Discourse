@@ -68,14 +68,7 @@
 		padding:30px;
 	}
 
-	ul{
-	    width: 80em;
-	  }  /* float & allow room for the widest item */
-	ul li {
-	    float: left;
-	    width: 10em;
-	    list-style-type: none;
-	  }  /* stop the float */
+
 
 	br {
 	    clear: left;
@@ -83,8 +76,14 @@
 
 </style>
 <div class="row" ng-controller="ChapterProfileController" id="chapter_page">
+	<div class="large-12 columns background-white-95">
 <div id="profile_picture">
-	<img src="http://blog.heyo.com/wp-content/uploads/2014/08/eventpage.jpg" width = "100%" height = "300"> <!-- pic source link from database -->
+	<img src = "{{chapter.img_url}}" width = "100%" height = "200"> <!-- pic source link from database --><br>
+	<br>
+	<form>
+		Change image: <input type="text" ng-model="new_image.img_url" placeholder="Enter image url">
+		<input type="submit" name="Change Image" ng-click = "newImage()">
+	</form>
 </div>
 
 <div id="user_title">
@@ -108,10 +107,10 @@
 
 <div id="stats">
 	<h2>Chapter Statistics</h2>
-	<p>Total Money Raised: {{chapter.amount_raised}} </p>
-	<p>Money Raised this year: $1000 </p>
-	<p>Rescued Count: {{chapter.rescused_count}} </p>
-	<p>Number of Members: 100 </p>
+	<p>Total Money Raised: ${{chapter.amount_raised}} </p>
+	<p>Money Raised this year: $ </p>
+	<p>Rescued Count: {{chapter.rescued_count}} </p>
+	<p>Number of Members:  </p>
 </div>
 
 <!-- member lists -->
@@ -128,56 +127,13 @@
 		<br>
 		<ul>
 			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
-			<li>Stephane Judd</li>
 			
 			<br/>
 		</ul>
 	          
 	</div>
 
+</div>
 </div>
 
 <div>

@@ -12,8 +12,8 @@
 		<title>Liberty In North Korea</title>
 		<link rel="stylesheet" href="http://foundation.zurb.com/assets/css/templates/foundation.css">
 		<link rel="stylesheet" href="../css/style.css">
-		<script type="text/javascript" src="http://foundation.zurb.com/assets/js/modernizr.js"></script>
-		<!-- <script type="text/javascript" src="../js/foundation.js"></script>-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/modernizr.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.offcanvas.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   	</head>
@@ -34,6 +34,7 @@
 			            <li><a href="#">Local Board</a></li>
 			            <li><a href="#">My Chapter</a></li>
 			            <li><a href="#">My Profile</a></li>
+			            <li><a href="#">Admin</a></li>
 			            <section data-ng-if="authentication.user">
 							<li><a href="/#!/signin">Sign in</a></li>
 						</section>
@@ -53,8 +54,9 @@
 						<ul class="button-group">
 							<li><a href="/#!/global" title="Global Board" class="button-nav"><i class="fa fa-globe"></i> Global Board</a></li>
 							<li><a href="/#!/local" title="Local Board" class="button-nav"><i class="fa fa-home"></i> Local Board</a></li>
-							<li><a href="/#!/chapter_profile/1" title="My Chapter" class="button-nav"><i class="fa fa-users"></i> My Chapter</a></li>
+							<li><a href="/#!/chapter_profile/Berkeley" title="My Chapter" class="button-nav"><i class="fa fa-users"></i> My Chapter</a></li>
 							<li><a href="/#!/user_profile/1" title="My Profile" class="button-nav"><i class="fa fa-user"></i> My Profile</a></li>
+							<li><a href="/#!/admin" title="My Profile" class="button-nav"><i class="fa fa-user-md"></i> Admin</a></li>
 							<li><a href="/auth/signout" title="Sign In/Out" class="button-nav"><i class="fa fa-sign-out"></i> Sign Out</a></li>
 						</ul>
 					</div>
@@ -94,16 +96,17 @@
 		<script type="text/javascript" src="controllers/user_profile.controller.js"></script>
 		<script type="text/javascript" src="controllers/user_profile.factory.js"></script>
 		<script type="text/javascript" src="controllers/chapter_profile.controller.js"></script>
+		<script type="text/javascript" src="controllers/admin.controller.js"></script>
+		<script type="text/javascript" src="controllers/admin.factory.js"></script>
 		<script type="text/javascript" src="controllers/chapter_profile.factory.js"></script>
 		<script type="text/javascript" src="services/authentication.client.service.js"></script>
 		<script type="text/javascript" src="config/application.client.routes.js"></script>
+		<script type="text/javascript" src="controllers/local.client.controller.js"></script>
+		<script type="text/javascript" src="controllers/local.client.factory.js"></script>
 		<script>
 			document.write('<script src=js/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery') +'.js><\/script>')
 		</script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/jquery.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
-		<script>$(document).foundation();</script>
-		<script src="http://foundation.zurb.com/assets/js/templates/jquery.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.js"></script>
 		<script>
 		    $(document).foundation();

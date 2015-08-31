@@ -8,20 +8,22 @@
 	
 </section>
 
-	<div class="row">
+	<div class="row" ng-controller="LocalController">
 		<div class="large-9 columns" role="content">
 			<article>
 				<h3>Local Discussion Board</h3>
 				<div class="row">
 					<div class="large-12 columns">
+						<a href="/#!/local_post" class="button right tiny">Add Post</a>
 						<div class="row">
 							<ul class="tabs" data-tab>
 							    <li class="tab-title active"><a href="#global">Most Votes</a></li>
 							    <li class="tab-title"><a href="#local">Latest</a></li>
 							</ul>
+
 							<div class="tabs-content">
 							    <div class="content active" id="global">
-									<div class="large-12 columns post">
+									<div ng-repeat="post in posts | orderBy: ['vote', 'created_at']" class="large-12 columns post">
 										<div class="post-votes">
 											<a href="#"><i class="fa fa-arrow-up"></i></a><br>
 											670<br>
@@ -31,19 +33,19 @@
 											<img src="https://lh6.googleusercontent.com/-5Lnp5Lj9rVQ/AAAAAAAAAAI/AAAAAAAAAAA/Is-ShbaCZVI/s0-c-k-no-ns/photo.jpg" height="40" width="40"title="{{chapter}}" alt="{{chapter}}">
 										</div>
 										<div class="post-content">
-											<h5>Fundraising Tip 201 <small class="right">Stacy Gray, August 30, 2015, 3:01am</small></h5>
-											<p><b>Get foot traffic.</b> Organize your sale around a larger event if you can, like a sports game or a carnival. But don't count on strangers to make your sale a success. Make sure you promote the heck out of it with old-school flyers and more modern social media campaigns. Drawing a crowd of supporters will attract even more people to your sale. <a href="#">Read more...</a></p>
+											<h5>{{post.title}}<small class="right">{{post.user.name}}, {{post.created_at | date: YYY/mm/dd}}</small></h5>
+											<p>{{post.post}} <a href="#">Read more...</a></p>
 
 											<a href="#"><i class="fa fa-flag"></i> 0 </a>&nbsp;&nbsp;
-											<a href="#"><i class="fa fa-comments"></i> 10 comments</a> &nbsp;&nbsp;&nbsp;&nbsp;
+											<a ng-href="/#!/post/{{post._id}}"><i class="fa fa-comments"></i> 10 comments</a> &nbsp;&nbsp;&nbsp;&nbsp;
 											<small class="right">
-												University of California, Berkeley LINK Team &nbsp;&nbsp;|&nbsp;&nbsp;
-												Established Since: 2010 &nbsp;&nbsp;|&nbsp;&nbsp;
-												Status: Active &nbsp;&nbsp;&nbsp;&nbsp;
+												{{post.user._chapter.chapter_name}} &nbsp;&nbsp;|&nbsp;&nbsp;
+												Member Since: {{post.user.years_active}} &nbsp;&nbsp;|&nbsp;&nbsp;
+												Status: {{post.user.status}} &nbsp;&nbsp;&nbsp;&nbsp;
 											</small>
 											
 											<hr>
-											<div class="comment">
+<!-- 											<div class="comment">
 												<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 												<a href="#" class="small-text"><i class="fa fa-flag"></i> 0 </a>
 												<h5><small class="right small-text">Helen Hunt, August 31, 2015, 10:15am</small></h5>
@@ -53,7 +55,7 @@
 												<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 												<a href="#" class="small-text"><i class="fa fa-flag"></i> 0 </a>
 												<h5><small class="right small-text">James Redford, August 31, 2015, 11:15am</small></h5>
-											</div>
+											</div> -->
 										</div>
 									</div>
 									<div class="large-12 columns post">

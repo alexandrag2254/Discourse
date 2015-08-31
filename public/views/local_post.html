@@ -1,0 +1,70 @@
+<section data-ng-if="!authentication.user" class="text-center">
+	<h5>You're not signed in!</h5>
+	<a href="/#!/signup">Sign up</a> or
+	<a href="/#!/signin">Sign in</a>
+</section>
+<section data-ng-if="authentication.user" class="right">
+	<p>{{authentication.user.name}} <a href="/auth/signout">Sign out</a></p>
+	
+</section>
+
+	<div class="row">
+		<div class="large-9 columns background-white" role="content">
+			<article>
+				<h3>Local Discussion Board : Comment</h3>
+				<div class="row">
+					<div class="large-12 columns">
+						<a href="/#!/local_post" class="button right tiny">Add Post</a>
+						<div class="row">
+							<div ng-controller="LocalController">
+								<form>
+									<div>
+										<h5>Category</h5>
+										<select ng-model="topic.cat">
+											<option>Fundrasing</option>
+											<option>Events</option>
+											<option>Emergency</option>
+										</select>
+									</div>
+									<div>
+										<h5>Title</h5>
+										<textarea ng-model="topic.title" style="margin: 0px; height: 44px; width: 492px;"></textarea>
+									</div>
+									<div>
+										<h5>Text</h5>
+										<textarea ng-model="topic.text" style="margin: 0px; height: 100px; width: 492px;"></textarea>
+									</div>
+									<input type='submit' ng-click='topicAdd(topic, authentication.user)'>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	 
+	 	<aside class="large-3 columns hide-for-small hide-for-medium">
+			<div class="panel">	
+				<h5>FAQ</h5>
+				<ul>
+				<li><a href="#">FAQ 1</a></li>
+				<li><a href="#">FAQ 2</a></li>
+				<li><a href="#">FAQ 3</a></li>
+				</ul>
+				<h5>Links</h5>
+				<ul>
+				<li><a href="#">News 1</a></li>
+				<li><a href="#">News 2</a></li>
+				<li><a href="#">News 3</a></li>
+				</ul>
+			</div>
+			<div class="panel">
+				<h5>Moderators</h5>
+				<ul>
+					<li>Anna</li>
+					<li>Sarah</li>
+					<li>Nick</li>
+				</ul>
+			</div>
+		</aside>
+	</div>

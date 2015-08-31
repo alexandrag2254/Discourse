@@ -107,6 +107,34 @@ exports.get_chapter = function(req, res) {
 				res.json(results);
 			}
 		});
+}; 
+
+exports.get_user = function(req, res) {
+	 console.log("this is the user!!!!!!!!!!", req);
+
+	User.find({ _id : req }, function(err, results){
+			if(err) {
+				res.send(err);
+			} else {
+				res.json(results);
+			}
+		});
+};
+
+
+
+exports.get_chapters = function(req, res) {
+ 			
+ 	console.log("im in backend controller");
+
+    Chapter.find({}, function(err, results) {
+    	// console.log(results);
+        if(err) {
+                console.log(err);
+        } else {
+        res.json(results);
+        }
+        });
 };
 
 /**
@@ -128,3 +156,32 @@ exports.oauthCallback = function(strategy) {
 		})(req, res, next);
 	};
 };
+
+    exports.new_chapter = function(req, res) {
+  
+		var new_chapter = new Chapter({
+			chapter_name: req.chapter_name,
+			chapter_email: req.chapter_email,
+			description: req.description,
+			location: req.location,
+			// img_url: req.img_url,
+			status: "active",
+			amount_raised: 0,
+			rescued_count: 0
+		});
+
+		new_chapter.save(function(err, result){
+			console.log(result);
+			if(err){
+				res.send(err);
+			} else {
+				res.json(result);
+			}
+		});
+	};
+
+    exports.delete_chapter = function(req, res){
+    	// console.log("this is the controller", req.id);
+        Chapter.remove({_id: req.id}, function (err, result){
+        })
+    };

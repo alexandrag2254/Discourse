@@ -1,0 +1,49 @@
+<style type="text/css">
+  td {
+    padding:5px;
+    border:gray solid 2px;
+  }
+  html {
+    width:970px;
+    margin:0 auto;
+  }
+  .center {
+    text-align: center;
+  }
+</style>
+
+<div class="row" ng-Controller="AdminController">
+  <div class="large-12 columns background-white-95">
+	<input class="col-sm-2" class="search" type="text" ng-model="filter_question" placeholder="Search..."><span ng-bind="filter_question"></span><br><br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Chapters</th>
+        <th class="center"></th>
+        <th class="center"></th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr ng-repeat="chapter in chapters | filter: filter_question | orderBy: 'created_at'"> 
+          <td ng-bind="chapter.chapter_name"></td>
+
+          <td class="center"><button ng-click="deleteChapter(chapter._id)">Delete</button></td>
+
+          <td class="center"><a href="/#!/chapter_profile/{{chapter.chapter_name}}"> Profile</a></td>
+        </tr>
+      </tbody>
+  </table>
+
+	<div>
+		<h3>Create New Chapter</h3>
+		<form>
+			Chapter Name: <input type="text" ng-model="new_c.chapter_name"><br>
+			Chapter Email: <input type="email" ng-model="new_c.chapter_email"><br>
+			Description: <textarea ng-model="new_c.description" rows=5 col="50"></textarea><br>
+			Location: <input type="text" ng-model="new_c.location"><br>
+			Image(url): <input type="text" ng-model="new_c.img_url"><br>
+			<input type="submit" name="New Chapter" ng-click="newChapter()">
+		</form>
+	</div>
+</div>
+<div>

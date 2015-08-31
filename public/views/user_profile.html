@@ -23,6 +23,7 @@
 	}
 </style>
 <div class="row" ng-Controller="UserProfileController">
+	<div class="large-12 columns background-white-95">
 
 	<div id="profile_picture">
 		<img src="http://www.bdu.edu.et/emti/sites/bdu.edu.et.emti/files/default_images/no-profile-img.gif" width = "250" height = "250"> <!-- pic source link from database -->
@@ -41,7 +42,8 @@
 			<input type="submit" value="Edit" ng-click="editEmail(user._id)">
 		</form>
 		<br>
-		<p>Status: Administrator</p>
+		<p>Status: {{authentication.user.level}}</p>
 	</div>
+</div>
 
 <div>

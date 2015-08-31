@@ -1,20 +1,47 @@
 
 //userprofile controller
-mainApplicationModule.controller('UserProfileController', function($scope, $location, UserProfileFactory){
+mainApplicationModule.controller('UserProfileController', function($scope, $routeParams, $location, UserProfileFactory){
+	// console.log($scope.authentication);
+	// console.log($scope.authentication.user._id);
+	console.log("I am in the UP controller");
+	console.log($scope.authentication)
+	if ($scope.authentication.user == null)
+	{
+		$location.path("/signin");
+	}
 
-	console.log("I am in the CP controller");
+
+	
+	UserProfileFactory.getUser($scope.authentication.user._id, function(data){
+		$scope.realname = data[0].name;
+		$scope.info = data[0];
+		 //console.log("The name is", $scope.realname);
+	});
+	
+
 
 	$scope.editdescription = function(id){
 		UserProfileFactory.editEmail(id, $scope.new_description);
 	};
 
-	//updating email if user is admin or moderator
 
-	// if ((user.level == "admin") || (user.level == "moderator" && user.chapter == currentChapter)){
-	// 	admin_access = true
-	// } else {
-	// 	admin_access = false
-	// }
+	// console.log("HHIIIIII", $scope.authentication.user);
 
-	$scope.admin_access = true;
+	if ($scope.authentication.user == null){
+		$location.path("/signin");
+	}
+
+	else{
+	//ability to update email if user is admin or moderator
+
+		if ($scope.authentication.user.level == "admin") {
+			console.log("it is true");
+			$scope.admin_access = true
+		} else {
+			console.log("it is false");
+			$scope.admin_access = false
+		}
+	}
+
+	//$scope.admin_access = true;
 });

@@ -1,0 +1,66 @@
+<section data-ng-if="!authentication.user" class="text-center">
+	<h5>You're not signed in!</h5>
+	<a href="/#!/signup">Sign up</a> or
+	<a href="/#!/signin">Sign in</a>
+</section>
+<section data-ng-if="authentication.user" class="right">
+	<p>{{authentication.user.name}} <a href="/auth/signout">Sign out</a></p>
+	
+</section>
+
+	<div class="row">
+		<div class="large-9 columns background-white" role="content">
+			<article>
+				<h3>Local Discussion Board : Comment</h3>
+				<div class="row">
+					<div class="large-12 columns">
+						<a href="/#!/local_post" class="button right tiny">Add Post</a>
+						<div class="row">
+							<div ng-controller="LocalController">
+								<h4>{{post.title}}</h4>
+								<h6>{{post.post}}</h6>
+								<h6>{{post.user.name}} ({{post.user._chapter.chapter_name}}, {{post.user.years_active}})</h6>
+
+								<form>
+									<h5>Leave a comment</h5>
+									<textarea ng-model='newcomment.comment'></textarea>
+									<input type='submit' ng-click="addComment(newcomment, post)">
+								</form>
+								<div ng-repeat="comment in comments | orderBy: ['vote', 'created_at' ]">
+									<p>{{comment.vote}}</p>
+									<p>{{comment.comment}}</p>
+									<p>{{comment.user.name}} ({{comment.user._chapter.chapter_name}}, {{post.user.years_active}}) {{comment.created_at | date: YYY/mm/dd}}</p>
+										
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	 
+	 	<aside class="large-3 columns hide-for-small hide-for-medium">
+			<div class="panel">	
+				<h5>FAQ</h5>
+				<ul>
+				<li><a href="#">FAQ 1</a></li>
+				<li><a href="#">FAQ 2</a></li>
+				<li><a href="#">FAQ 3</a></li>
+				</ul>
+				<h5>Links</h5>
+				<ul>
+				<li><a href="#">News 1</a></li>
+				<li><a href="#">News 2</a></li>
+				<li><a href="#">News 3</a></li>
+				</ul>
+			</div>
+			<div class="panel">
+				<h5>Moderators</h5>
+				<ul>
+					<li>Anna</li>
+					<li>Sarah</li>
+					<li>Nick</li>
+				</ul>
+			</div>
+		</aside>
+	</div>

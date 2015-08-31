@@ -3,6 +3,13 @@
 body {
 	font-family: "Raleway";
 	font-weight: 300;
+	background-image: url(../images/pp_movement_summit_1.png);
+  	background-position: center center;
+ 	background-repeat: no-repeat;
+  	background-attachment: fixed;
+ 	background-size: cover;
+ 	background-color:#464646;
+ 	margin: 0;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -31,6 +38,7 @@ p {
 	display: inline-block;
 	float: right;
 	border-radius: 4px;
+	width: 97%;
 }
 
 .post-votes {
@@ -84,4 +92,30 @@ p {
 
 .left-off-canvas-menu {
 	height: 800px;
+}
+
+.background-white {
+	background-color:rgba(255, 255, 255, 0.8);
+	border-radius: 4px;
+}
+
+.background-white-95 {
+	background-color:rgba(255, 255, 255, 0.95);
+	border-radius: 4px;
+}
+
+.full-height {
+	min-height: 500px;
+}
+
+.block {
+	width: 20%;
+	height: 20%;
+	margin: 1%;
+	display: inline-block;
+	text-align: center;
+}
+
+.block-text {
+	font-size: 16px;
 }

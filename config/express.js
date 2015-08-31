@@ -14,7 +14,10 @@ module.exports = function() {
 
     // Configure models
     require('../app/models/user.server.model');
-		
+    require('../app/models/post.server.model');
+    require('../app/models/comment.server.model');
+    require('../app/models/chapter.server.model');
+
 	// Enable logger (morgan)
     app.use(morgan('dev'));
 
@@ -41,7 +44,8 @@ module.exports = function() {
     // Configure routing
     require('../app/routes/index.server.routes')(app);
     require('../app/routes/users.server.routes')(app);
-	
+    require('../app/routes/locals.server.routes')(app);
+    	
 	// Setting the app router and static folder
 	app.use(express.static(path.resolve('./public')));
 

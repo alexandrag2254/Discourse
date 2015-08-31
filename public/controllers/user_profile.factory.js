@@ -11,6 +11,14 @@ mainApplicationModule.factory('UserProfileFactory', function($http){
 
 	};
 
+	factory.getUser = function(id, callback) {
+		console.log(id)
+		$http.get('/get_user/'+id).success(function(output){
+			 console.log(output);
+			callback(output);
+		});
+	};
+
 	console.log("I am in the UP factory");
 	return factory;
 });

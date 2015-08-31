@@ -68,7 +68,10 @@ var ChapterSchema = new Schema({
 	years_active: String,
 	amount_raised: Number,
 	rescued_count: Number,
-	img_url: String,
+	img_url: {
+		type: String,
+		default: ".././images/pp_movement_summit_5.png"
+	},
 	code: String,
 	created_at: {
 		type: Date,

@@ -21,6 +21,10 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/global.html',
             controller: 'IndexController'
         }).
+        when('/admin', {
+            templateUrl: 'views/admin.html',
+            controller: 'IndexController'
+        }).
         when('/local', {
             templateUrl: 'views/local.html',
             controller: 'IndexController'
@@ -32,6 +36,14 @@ angular.module('mean').config(['$routeProvider',
         when('/signin', {
             templateUrl: 'views/signin.html',
             controller: 'AuthenticationController'
+        }).
+        when('/local_post', {
+            templateUrl: 'views/local_post.html',
+            controller: 'IndexController'
+        }).
+        when('/post/:id', {
+            templateUrl: 'views/local_comment.html',
+            controller: 'IndexController'
         }).
         otherwise({
             redirectTo: '/'
